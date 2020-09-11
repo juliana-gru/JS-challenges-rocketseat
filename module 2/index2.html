@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const nomes = ["Diego", "Gabriel", "Lucas"];
+
+    const body = document.querySelector('body');
+    const newList = document.createElement('ul');
+
+    nomes.forEach(name => {
+      const li = document.createElement('li');
+      li.innerText = name;
+      newList.append(li);
+    })
+
+    const input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('name','nome');
+
+    const button = document.createElement('button');
+    button.innerText = 'Adicionar';
+
+    const adicionar = () => {
+      const newItem = document.createElement('li');
+      newItem.innerText = input.value;
+
+      newList.append(newItem);
+      input.value = '';
+    }
+
+    button.addEventListener('click', adicionar);
+
+    body.append(newList);
+    body.append(input);
+    body.append(button);
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const body = document.querySelector('body');
+    const button = document.createElement('button');
+    let squares;
+
+    button.style.height = '60px';
+    button.style.width = '200px';
+    button.innerText = 'Click me';
+    body.append(button);
+
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    const create100pxSquare = () => {
+      const square = document.createElement('div');
+      square.style.width = '100px';
+      square.style.height = '100px';
+      square.style.backgroundColor = 'red';
+
+      body.append(square);
+
+      square.addEventListener('mouseover', function() {
+        square.style.backgroundColor = getRandomColor();
+      });       
+    }
+
+    button.addEventListener('click', create100pxSquare);
+  </script>
+</body>
+</html>
